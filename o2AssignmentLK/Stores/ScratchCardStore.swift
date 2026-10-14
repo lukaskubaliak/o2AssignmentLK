@@ -8,19 +8,24 @@
 import SwiftUI
 
 @MainActor @Observable final class ScratchCardStore {
-    enum State {
+    enum State: Equatable {
         case idle
         case scratching
         case activating
     }
     
     private let activationService: any ActivationService
+    private let scratchDuration: Duration
     private(set) var card = ScratchCard(id: UUID())
     private(set) var state: State = .idle
     private(set) var error: AppError?
     
-    init(activationService: any ActivationService) {
+    init(
+        activationService: any ActivationService,
+        scratchDuration: Duration = .seconds(2)
+    ) {
         self.activationService = activationService
+        self.scratchDuration = scratchDuration
     }
     
     func scratch() async {
@@ -29,8 +34,10 @@ import SwiftUI
         defer { state = .idle }
         do {
             state = .scratching
-            try await Task.sleep(for: .seconds(2))
+            try await Task.sleep(for: scratchDuration)
             card.state = .scratched(code: UUID())
+        } catch is CancellationError {
+            // Leaving ScratchView intentionally cancels this operation.
         } catch {
             self.error = .domain(.scratchError)
         }

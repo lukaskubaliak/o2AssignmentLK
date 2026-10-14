@@ -6,8 +6,19 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXContainerItemProxy section */
+		A1000006307F000000000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7897280F307E4B2E006551B7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 78972816307E4B2E006551B7;
+			remoteInfo = o2AssignmentLK;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		78972817307E4B2E006551B7 /* o2AssignmentLK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = o2AssignmentLK.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A1000001307F000000000001 /* o2AssignmentLKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = o2AssignmentLKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -16,10 +27,22 @@
 			path = o2AssignmentLK;
 			sourceTree = "<group>";
 		};
+		A1000002307F000000000001 /* o2AssignmentLKTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = o2AssignmentLKTests;
+			sourceTree = "<group>";
+		};
 /* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		78972814307E4B2E006551B7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A1000004307F000000000001 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -33,6 +56,7 @@
 			isa = PBXGroup;
 			children = (
 				78972819307E4B2E006551B7 /* o2AssignmentLK */,
+				A1000002307F000000000001 /* o2AssignmentLKTests */,
 				78972818307E4B2E006551B7 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -41,6 +65,7 @@
 			isa = PBXGroup;
 			children = (
 				78972817307E4B2E006551B7 /* o2AssignmentLK.app */,
+				A1000001307F000000000001 /* o2AssignmentLKTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -70,6 +95,29 @@
 			productReference = 78972817307E4B2E006551B7 /* o2AssignmentLK.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A1000005307F000000000001 /* o2AssignmentLKTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A100000A307F000000000001 /* Build configuration list for PBXNativeTarget "o2AssignmentLKTests" */;
+			buildPhases = (
+				A1000003307F000000000001 /* Sources */,
+				A1000004307F000000000001 /* Frameworks */,
+				A100000B307F000000000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A1000007307F000000000001 /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				A1000002307F000000000001 /* o2AssignmentLKTests */,
+			);
+			name = o2AssignmentLKTests;
+			packageProductDependencies = (
+			);
+			productName = o2AssignmentLKTests;
+			productReference = A1000001307F000000000001 /* o2AssignmentLKTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -82,6 +130,10 @@
 				TargetAttributes = {
 					78972816307E4B2E006551B7 = {
 						CreatedOnToolsVersion = 26.4;
+					};
+					A1000005307F000000000001 = {
+						CreatedOnToolsVersion = 26.4;
+						TestTargetID = 78972816307E4B2E006551B7;
 					};
 				};
 			};
@@ -100,12 +152,20 @@
 			projectRoot = "";
 			targets = (
 				78972816307E4B2E006551B7 /* o2AssignmentLK */,
+				A1000005307F000000000001 /* o2AssignmentLKTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		78972815307E4B2E006551B7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A100000B307F000000000001 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -122,7 +182,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A1000003307F000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A1000007307F000000000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 78972816307E4B2E006551B7 /* o2AssignmentLK */;
+			targetProxy = A1000006307F000000000001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		78972820307E4B30006551B7 /* Debug */ = {
@@ -310,6 +385,56 @@
 			};
 			name = Release;
 		};
+		A1000008307F000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A6CC6WMX92;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.baku.o2AssignmentLKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/o2AssignmentLK.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/o2AssignmentLK";
+			};
+			name = Debug;
+		};
+		A1000009307F000000000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A6CC6WMX92;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.4;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.baku.o2AssignmentLKTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_APPROACHABLE_CONCURRENCY = YES;
+				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/o2AssignmentLK.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/o2AssignmentLK";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -327,6 +452,15 @@
 			buildConfigurations = (
 				78972823307E4B30006551B7 /* Debug */,
 				78972824307E4B30006551B7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A100000A307F000000000001 /* Build configuration list for PBXNativeTarget "o2AssignmentLKTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A1000008307F000000000001 /* Debug */,
+				A1000009307F000000000001 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
