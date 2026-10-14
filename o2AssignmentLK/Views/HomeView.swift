@@ -29,18 +29,29 @@ struct HomeView: View {
         }
         .safeAreaBar(edge: .bottom) {
             HStack(spacing: 12) {
-                O2Button(title: "Scratch card") {
+                ActionButton(title: "Scratch card") {
                     router.push(.scratchView)
                 }
                 .disabled(!scratchCardStore.card.state.canBeScratched)
                 
-                O2Button(title: "Activate card") {
+                ActionButton(title: "Activate card") {
                     router.push(.activateView)
                 }
-                .o2ButtonStyle(.secondary)
+                .actionButtonStyle(.secondary)
                 .disabled(!scratchCardStore.card.state.canBeActivated)
             }
             .padding()
+        }
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Menu {
+                    Button("Reset card", role: .destructive) {
+                        scratchCardStore.reset()
+                    }
+                } label: {
+                    Image(systemName: "gearshape")
+                }
+            }
         }
     }
     

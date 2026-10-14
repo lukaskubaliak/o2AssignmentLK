@@ -75,6 +75,7 @@ struct ScratchCardView: View {
             RoundedRectangle(cornerRadius: 16)
                 .strokeBorder(scratchCard.state.foregroundStyle, lineWidth: 1)
         )
+        .animation(.default, value: scratchCard.state)
     }
 }
 

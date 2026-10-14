@@ -9,13 +9,14 @@ import SwiftUI
 
 @main
 struct o2AssignmentLKApp: App {
-    @State private var store = ScratchCardStore()
+    @State private var store = ScratchCardStore(activationService: RequestActivationService())
     
     var body: some Scene {
         WindowGroup {
             RouterView {
                 HomeView()
             }
+            .appErrorAlert(store: store)
             .environment(\.scratchCardStore, store)
         }
     }

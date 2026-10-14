@@ -8,11 +8,28 @@
 import SwiftUI
 
 struct ActivateView: View {
+    @Environment(\.scratchCardStore) private var scratchCardStore
+    
     var body: some View {
-        Text("ActivateView")
+        ScratchCardView(
+            scratchCard: scratchCardStore.card,
+            isScratching: scratchCardStore.state == .scratching
+        )
+        .frame(maxHeight: .infinity)
+        .safeAreaInset(edge: .bottom) {
+            ActionButton(title: "Activate your code!", isLoading: scratchCardStore.state == .activating) {
+                Task {
+                    await scratchCardStore.activate()
+                }
+            }
+            .disabled(!scratchCardStore.card.state.canBeActivated)
+        }
+        .padding()
     }
 }
 
 #Preview {
-    ActivateView()
+    RouterView {
+        ActivateView()
+    }
 }
