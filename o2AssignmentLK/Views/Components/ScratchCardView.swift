@@ -9,9 +9,13 @@ import SwiftUI
 
 struct ScratchCardView: View {
     private let scratchCard: ScratchCard
+    private let isScratching: Bool
     
-    init(scratchCard: ScratchCard) {
+    @State private var isPulsing = false
+    
+    init(scratchCard: ScratchCard, isScratching: Bool = false) {
         self.scratchCard = scratchCard
+        self.isScratching = isScratching
     }
     
     private var code: String {
@@ -22,25 +26,47 @@ struct ScratchCardView: View {
         }
     }
     
+    private var codeView: some View {
+        Text(code)
+            .font(.callout)
+            .fontWeight(.medium)
+            .lineLimit(1)
+            .minimumScaleFactor(0.5)
+            .frame(maxWidth: .infinity, minHeight: 24)
+            .padding(4)
+            .background(.secondary.opacity(0.4))
+            .overlay {
+                if case .unscratched = scratchCard.state {
+                    Rectangle()
+                        .background(.ultraThickMaterial)
+                }
+            }
+            .clipShape(.rect(cornerRadius: 8))
+    }
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 32) {
             Text("Your Scratch Card")
                 .font(.title3)
                 .fontWeight(.semibold)
             
-            Text(code)
-                .font(.callout)
-                .fontWeight(.medium)
-                .frame(maxWidth: .infinity, minHeight: 24)
-                .padding(4)
-                .background(.secondary.opacity(0.4))
-                .overlay {
-                    if case .unscratched = scratchCard.state {
-                        Rectangle()
-                            .background(.ultraThickMaterial)
+            codeView
+                .opacity(isPulsing ? 0.8 : 1)
+                .scaleEffect(isPulsing ? 1.02 : 1)
+                .onChange(of: isScratching, initial: true) { _, isScratching in
+                    if isScratching {
+                        withAnimation(
+                            .easeInOut(duration: 0.5)
+                            .repeatForever(autoreverses: true)
+                        ) {
+                            isPulsing = true
+                        }
+                    } else {
+                        withAnimation {
+                            isPulsing = false
+                        }
                     }
                 }
-                .clipShape(.rect(cornerRadius: 8))
         }
         .padding(16)
         .padding(.bottom, 8)

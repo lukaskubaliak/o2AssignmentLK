@@ -14,18 +14,19 @@ import SwiftUI
     }
     
     private(set) var card = ScratchCard(id: UUID())
-    private var state: State = .idle
+    private(set) var error: AppError?
+    private(set) var state: State = .idle
     
     func scratch() async {
-        guard case .idle = state else { return }
+        guard case .idle = state, card.state.canBeScratched else { return }
         
+        defer { state = .idle }
         do {
             state = .scratching
             try await Task.sleep(for: .seconds(2))
             card.state = .scratched(code: UUID())
-            state = .idle
         } catch {
-            // TODO: throw error
+            self.error = .scratchError
         }
     }
 

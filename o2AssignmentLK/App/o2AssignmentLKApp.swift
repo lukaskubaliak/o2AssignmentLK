@@ -13,8 +13,10 @@ struct o2AssignmentLKApp: App {
     
     var body: some Scene {
         WindowGroup {
-            HomeView()
-                .environment(\.scratchCardStore, store)
+            RouterView {
+                HomeView()
+            }
+            .environment(\.scratchCardStore, store)
         }
     }
 }
@@ -33,6 +35,7 @@ struct RouterView<Content: View>: View {
                 .navigationDestination(for: Route.self) { route in
                     switch route {
                     case .scratchView: ScratchView()
+                    case .activateView: ActivateView()
                     }
                 }
         }

@@ -34,9 +34,11 @@ struct HomeView: View {
                 }
                 .disabled(!scratchCardStore.card.state.canBeScratched)
                 
-                O2Button(title: "Activate card") { }
-                    .o2ButtonStyle(.secondary)
-                    .disabled(!scratchCardStore.card.state.canBeActivated)
+                O2Button(title: "Activate card") {
+                    router.push(.activateView)
+                }
+                .o2ButtonStyle(.secondary)
+                .disabled(!scratchCardStore.card.state.canBeActivated)
             }
             .padding()
         }
@@ -44,7 +46,7 @@ struct HomeView: View {
     
     var body: some View {
         contentView
-            .navigationTitle("Scratch Card")
+            .navigationTitle("Your card")
     }
 }
 

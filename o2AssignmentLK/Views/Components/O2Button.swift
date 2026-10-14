@@ -14,7 +14,7 @@ enum O2ButtonType {
     var backgroundColor: Color {
         switch self {
         case .primary: .blue
-        case .secondary: .gray.opacity(0.3)
+        case .secondary: .white
         }
     }
     
@@ -38,6 +38,13 @@ enum O2ButtonType {
     
     var disabledForegroundStyle: Color {
         .gray.opacity(0.5)
+    }
+    
+    var borderColor: Color {
+        switch self {
+        case .primary: .blue
+        case .secondary: .secondary
+        }
     }
 }
 
@@ -71,6 +78,10 @@ fileprivate struct O2ButtonStyle: ButtonStyle {
                 } else {
                     isEnabled ? type.backgroundColor : type.disabledBackgroundColor
                 }
+            }
+            .overlay {
+                RoundedRectangle(cornerRadius: 12)
+                    .strokeBorder(isEnabled ? type.borderColor : .clear, lineWidth: 1)
             }
             .clipShape(.rect(cornerRadius: 12))
     }
