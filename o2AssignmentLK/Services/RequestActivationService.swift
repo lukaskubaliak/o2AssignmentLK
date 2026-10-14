@@ -32,8 +32,12 @@ struct RequestActivationService: ActivationService {
             debugPrint(response)
             
             return response
-        } catch {
+        } catch let error as AppError {
+            throw error
+        } catch is DecodingError {
             throw .network(.decodingFailed)
+        } catch {
+            throw .network(.requestFailed)
         }
     }
 }

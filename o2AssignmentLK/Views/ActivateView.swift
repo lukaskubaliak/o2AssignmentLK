@@ -22,7 +22,10 @@ struct ActivateView: View {
                     await scratchCardStore.activate()
                 }
             }
-            .disabled(!scratchCardStore.card.state.canBeActivated)
+            .disabled(
+                !scratchCardStore.card.state.canBeActivated ||
+                scratchCardStore.state == .activating
+            )
         }
         .padding()
     }

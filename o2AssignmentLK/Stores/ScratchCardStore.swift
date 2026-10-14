@@ -44,7 +44,7 @@ import SwiftUI
     }
 
     func activate() async {
-        guard case let .scratched(code) = card.state else { return }
+        guard case let .scratched(code) = card.state, state == .idle else { return }
         
         defer { state = .idle }
         do {

@@ -17,13 +17,15 @@ struct AppErrorAlertModifier: ViewModifier {
                 isPresented: Binding(
                     get: { store.error != nil },
                     set: { isPresented in
-                        guard isPresented else { return }
-                        
-                        store.clearError()
+                        if !isPresented {
+                            store.clearError()
+                        }
                     }
                 ),
                 actions: {
                     Button("OK") {}
+                }, message: {
+                    Text(store.error?.message ?? AppError.generalMessage)
                 }
             )
     }

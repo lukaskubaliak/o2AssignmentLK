@@ -56,6 +56,7 @@ enum NetworkError: Error {
     case invalidResponse
     case invalidStatusCode(Int)
     case decodingFailed
+    case requestFailed
     
     var message: String {
         switch self {
@@ -63,6 +64,7 @@ enum NetworkError: Error {
         case .invalidResponse: "The server returned an invalid response."
         case let .invalidStatusCode(statusCode): "The server returned status code \(statusCode)."
         case .decodingFailed: "The server response could not be processed."
+        case .requestFailed: "The request could not be completed."
         }
     }
 }
